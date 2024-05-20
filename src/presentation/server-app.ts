@@ -24,9 +24,6 @@ export class AppServer {
 
     (wasCreated)
       ? console.log('File Created!')
-      : console.log('File not created!')
-
-
-
+      : console.log('File not created!');
   }
 }
