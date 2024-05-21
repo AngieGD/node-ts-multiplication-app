@@ -1,28 +1,25 @@
-
 interface CreateTableInterface {
-    execute:(options:OptionsCreateTable) => string
+	execute: (options: OptionsCreateTable) => string;
 }
 
 interface OptionsCreateTable {
-    limit:number;
-    base:number;
+	limit: number;
+	base: number;
 }
-
 
 /**
  * Clase encargada de gestionar el caso de uso de creación de una tabla
  */
 export class CreateTable implements CreateTableInterface {
-    constructor() { };
+	constructor() {}
 
-    execute({ base, limit }:OptionsCreateTable) {
+	execute({ base, limit }: OptionsCreateTable) {
+		let bodyMessage: string = "";
 
-        let bodyMessage: string = '';
-
-        for (let i = 1; i <= limit; i++) {
-            bodyMessage += `${base} X ${i} = ${i * base}\n`
-        }
-
-        return bodyMessage;
-    }
+		for (let i = 1; i <= limit; i++) {
+			bodyMessage += `${base} X ${i} = ${i * base}`;
+			if (i < limit) bodyMessage += "\n";
+		}
+		return bodyMessage;
+	}
 }
